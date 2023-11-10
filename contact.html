@@ -1,86 +1,31 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Old+Mincho:wght@500;700;900&display=swap" rel="stylesheet">
     <title>お問い合わせ</title>
   </head>
+
   <body>
     <h1>お問い合わせ</h1>
     <p>学習の励みにもなりますので是非ご意見、
       <br>ご感想など書いていただけると嬉しいです。
     </p>
-    <!--<form action="">
-    <p class="hidden">
-      <label>Don’t fill this out if you're human:
-        <input name="bot-field">
-      </label>
-    </p>
-    <p>メッセージ<textarea name="message"></textarea></p>
-    <p>お名前<input type="text" name="user_name" required="required"></p>
-    <p>メールアドレス<input type="email" name="user_email" required="required"></p>
-    <p><input type="submit" value="Send"></p>-->
-    <!-- お問い合わせフォーム -->
-    <!-- 各種属性の意味は次の通り -->
-    <!--  name="contact"    サーバ処理時に、contact という名前のフォームとして扱う
-            action="/success" 送信ボタンを押すと、success.html を表示する
-            method="POST"     form送信の際の約束事として、こう記述する
-            netlify-honeypot="bot-field"   ボット対策(プログラムによる自動投稿対策)
-            data-netlify-recaptcha="true"  車の絵を選べなどの「キャプチャ」機能を用いる
-            data-netlify="true">           Netlify でフォーム処理を行う -->
     <form name="contact" action="/success" method="POST" netlify-honeypot="bot-field" data-netlify-recaptcha="true" data-netlify="true">
-      <!-- Netlify honeypot -->
-      <!-- hidden(隠し)クラスにしているので、人の目からはこの入力枠は見えない。
-                 それでも入力枠に文字入力されているならば、ボット（コンピュータプログラム）
-                 による投稿なので、Netlify により、スパム(迷惑)として扱われる -->
-      <p class="hidden">
-        <label>Don’t fill this out if you're human:
-          <input name="bot-field">
-        </label>
-        <!-- メール通知用の隠し枠 -->
-        <!-- Netlifyから送られるメールの「件名」と
-                「問い合わせ前に見ていたURL」を指定している -->
-        <input type="hidden" id="subject" name="subject" data-remove-prefix="true" value="Webサイトから「お問い合わせ」がありました。">
-        <label class="hidden" for="subject">件名</label>
-        <input id="referrer_url" name="referrer_url" type="hidden">
-        <label class="hidden" for="referrer_url">お問い合わせ前に見ていたURL</label>
-        <script>
-        document.getElementById("referrer_url").value = document.referrer
-      </script>
-      </p>
       <p>
-        <!-- 長文用の文字入力枠 -->
-        <!-- 各種属性の意味は次の通り -->
-        <!-- autocapitalize="none" 自動的に先頭文字を大文字にしない
-                          autocorrect="off"    自動的に綴校正(スペルチェック)を行わない
-                          id="message"         id属性をmesseageにする。
-                                               labelのfor属性に for="message" と書き、
-                                               入力枠とラベルの対応関係を明確にする
-                          name="message"       サーバ側で、message という名前の入力枠として扱う
-                          placeholder="とっても為になりました。ありがとうございます。" 入力例 required="required"  required属性。送信ボタンを押すには入力必須 -->
         <textarea autocapitalize="none" autocorrect="off" id="message" name="message" placeholder="ここに感想を書こう！" required="required"></textarea>
         <label for="message">お問い合わせ内容</label>
       </p>
       <p>
-        <!-- 文字入力枠 -->
-        <!-- 各種属性の意味は次の通り -->
-        <!-- type="text" 文字入力用の枠 通常のキーボードが表示される
-                         autocomplete="name" iPhone の連絡先から自分の名前が自動入力できる -->
         <input type="text" autocomplete="name" id="name" name="name" placeholder="山田 太郎" required="required">
         <label for="name">お名前</label>
       </p>
       <p>
-        <!-- 文字入力枠 -->
-        <!-- 各種属性の意味は次の通り -->
-        <!-- type="email" メール入力用の枠 メール用のキーボードが表示される
-                         autocomplete="email" iPhone で自分のメールアドレスが自動入力できる -->
         <input type="email" autocomplete="email" id="email" name="email" placeholder="taro@example.com" required="required">
         <label for="email">メールアドレス</label>
       </p>
@@ -91,6 +36,5 @@
         <a href="index.html">やっぱ伝えない</a>
       </p>
     </form>
-    <!-- </form> -->
   </body>
 </html>
