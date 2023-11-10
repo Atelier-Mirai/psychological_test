@@ -17,6 +17,12 @@
       <br>ご感想など書いていただけると嬉しいです。
     </p>
     <form name="contact" action="/success" method="POST" data-netlify="true">
+      <input type="hidden" id="subject" name="subject" data-remove-prefix="true" value="Webサイトから「お問い合わせ」がありました。">
+      <label class="hidden" for="subject">件名</label>
+      <input id="referrer_url" name="referrer_url" type="hidden">
+      <label class="hidden" for="referrer_url">お問い合わせ前に見ていたURL</label>
+      <script>document.getElementById("referrer_url").value = document.referrer</script>
+
       <p>
         <textarea autocapitalize="none" autocorrect="off" id="message" name="message" placeholder="ここに感想を書こう！" required="required"></textarea>
         <label for="message">お問い合わせ内容</label>
